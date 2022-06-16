@@ -33,12 +33,18 @@ $products[] = $leash;
 $new_user = new User("Gino", "gino@gmail.com", true, false);
 $new_user->setDiscount();
 // var_dump($new_user);
+
 try {
   $new_user->addProductToCart($dog_food);
 } catch (Exception $e) {
   echo "!!!Errore, prodotto non disponibile!!!";
 }
-$new_user->addProductToCart($brush);
+
+try {
+  $new_user->addProductToCart($brush);
+} catch (Exception $e) {
+  echo "!!!Errore, prodotto non disponibile!!!";
+}
 // $new_user->addProductToCart($leash);
 // var_dump($new_user->cart);
 ?>
