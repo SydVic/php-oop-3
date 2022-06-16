@@ -11,6 +11,7 @@ require_once __DIR__ . "/User.php";
 require_once __DIR__ . "/Identifier.php";
 
 $dog_food = new Food("Crocchette Purina", 22.99, "Crocchette Cane Adulto con Manzo, Cereali e Verdure", "cane", 12);
+$dog_food->avilable = false;
 // var_dump($dog_food);
 
 $cat_food = new Food("Cibo umido Felix", 1.99, "Buste cibo in gelatina con tonno e salmone", "gatto", 0.085);
@@ -32,8 +33,11 @@ $products[] = $leash;
 $new_user = new User("Gino", "gino@gmail.com", true, false);
 $new_user->setDiscount();
 // var_dump($new_user);
-
-$new_user->addProductToCart($dog_food);
+try {
+  $new_user->addProductToCart($dog_food);
+} catch (Exception $e) {
+  echo "!!!Errore, prodotto non disponibile!!!";
+}
 $new_user->addProductToCart($brush);
 // $new_user->addProductToCart($leash);
 // var_dump($new_user->cart);

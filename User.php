@@ -16,12 +16,20 @@ class User {
   }
 
   public function addProductToCart($product) {
-    if(get_parent_class($product) === "Product") {
+    if($product->avilable === true) {
       $this->cart[] = $product;
-      return true;
+    } else {
+      throw new Exception("Prodotto non disponibile");
     }
-    return false;
   }
+
+  // public function addProductToCart($product) {
+  //   if(get_parent_class($product) === "Product") {
+  //     $this->cart[] = $product;
+  //     return true;
+  //   }
+  //   return false;
+  // }
 
   public function setDiscount() {
     if ($this->registered === true) {

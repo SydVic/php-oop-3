@@ -4,7 +4,7 @@ require_once __DIR__ . "/Identifier.php";
 
 class Accessory extends Product {
   use Identifier;
-  
+
   public $category;
   public $brand;
 
@@ -12,6 +12,7 @@ class Accessory extends Product {
     parent::__construct($_name, $_price, $_description);
     $this->category = $_category;
     $this->brand = $_brand;
+    $this->vat = 20;
   }
 
   public function printProductInfo() {
