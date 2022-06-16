@@ -1,7 +1,10 @@
 <?php
 require_once __DIR__ . "/Product.php";
+require_once __DIR__ . "/Identifier.php";
 
 class Food extends Product {
+  use Identifier;
+
   public $animal;
   public $weight;
 
@@ -9,6 +12,7 @@ class Food extends Product {
     parent::__construct($_name, $_price, $_description);
     $this->animal = $_animal;
     $this->weight = $_weight;
+    $this->vat = 4;
   }
 
   public function printProductInfo() {

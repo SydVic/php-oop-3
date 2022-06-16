@@ -1,7 +1,10 @@
 <?php
 require_once __DIR__ . "/Product.php";
+require_once __DIR__ . "/Identifier.php";
 
 class Accessory extends Product {
+  use Identifier;
+  
   public $category;
   public $brand;
 
